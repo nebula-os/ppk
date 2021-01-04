@@ -1,1 +1,5 @@
-pub fn status(manifest: &Manifest) {}
+use crate::Manifest;
+
+pub fn status(manifest: &Manifest) {
+    unimplemented!()
+}

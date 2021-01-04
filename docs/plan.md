@@ -5,6 +5,30 @@
 * [Modern technologies](./technologies.md)
 * [Static, no dependencies](./dependencies.md)
 
+## Requirements
+* Linux kernel 2.6.22, with _curl_ and _chroot_ binary installed target 
+* Media with at least 100M, 900MB for more complete solution as minimum
+* Internet connection
+
+## Workspace
+Workspace is a central project directory, which houses package definitions, an Alpine chroot and caches for dependency downloads.
+```
+<workspace-directory>/
+├─ workspace.toml
+├─ packages/
+│  ├─ <package-name>/
+│  │  ├─ <package-files>
+├─ work/
+│  ├─ git/
+│  │  ├─ <hashed-git-url-and-revision>/
+│  │  │  ├─ <repository-files>
+│  ├─ url/
+│  │  ├─ <hashed-url>/
+│  │  │  ├─ <downloaded-file-unpacked-if-archive>
+│  ├─ alpine/
+│  │  ├─ <alpine-chroot>
+```
+
 ## Package states
 * Resident - unarchived, uncompressed package residing in a file system
 * Packaged - archived and compressed version of the resident package

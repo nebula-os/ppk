@@ -1,0 +1,15 @@
+let mirror = "<mirror>"
+let arch = "x86_64"
+let version = "<version>"
+let chroot_dir = "<chroot_dir>"
+let branch = "<branch>"
+
+mkdir -p ./work/alpine-tmp
+cd ./work/alpine-tmp
+curl -LO ${mirror}/latest-stable/main/${arch}/apk-tools-static-${version}.apk
+tar -xzf apk-tools-static-*.apk
+./sbin/apk.static -X ${mirror}/latest-stable/main -U --allow-untrusted -p ${chroot_dir} --initdb add alpine-base
+mount -o bind /dev ${chroot_dir}/dev
+cp -L /etc/resolv.conf ${chroot_dir}/etc/
+mkdir -p ${chroot_dir}/etc/apk
+echo "${mirror}/${branch}/main" > ${chroot_dir}/etc/apk/repositories

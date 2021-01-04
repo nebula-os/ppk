@@ -20,3 +20,6 @@ toml = "0.5.7"
 derive_builder = "0.9.0"
 ion-shell = { git = "https://gitlab.redox-os.org/redox-os/ion", rev = "2bc8826a97929b1878375a5c747e5c4cfed2b10b" }
 git2 = "0.13.15"
+flate2 = "1.0.19"
+reqwest = "0.10.10"
+tokio = { version = "1.0.1", features = ["full"] }

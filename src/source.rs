@@ -4,8 +4,17 @@ use serde::{Deserialize, Serialize};
 #[serde(rename_all = "lowercase")]
 #[serde(untagged)]
 pub enum SourceReference {
+    Alpine(AlpineReference),
     Git(GitReference),
     Download(DownloadReference),
+}
+
+#[derive(Serialize, Deserialize, Builder, Debug, Clone)]
+#[serde(rename_all = "kebab-case")]
+pub struct AlpineReference {
+    pub repository: String,
+    pub pkg: String,
+    pub version: String,
 }
 
 #[derive(Serialize, Deserialize, Builder, Debug, Clone)]

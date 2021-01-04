@@ -1,3 +1,4 @@
+use crate::bin::BinDefinition;
 use crate::package_reference::PackageReference;
 use crate::source::SourceReference;
 use crate::var::Var;
@@ -10,8 +11,9 @@ use std::collections::HashMap;
 pub struct Manifest {
     name: String,
     version: Version,
+    vars: Option<HashMap<String, Var>>,
     src: Option<HashMap<String, SourceReference>>,
     dependencies: Option<HashMap<String, PackageReference>>,
     build_dependencies: Option<HashMap<String, PackageReference>>,
-    vars: Option<HashMap<String, Var>>,
+    bin: Option<HashMap<String, BinDefinition>>,
 }
